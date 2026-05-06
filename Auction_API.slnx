@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Action_API/Auction_API.csproj" />
+  <Project Path="Core/Core.csproj" />
+  <Project Path="Data/Data.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+</Solution>
