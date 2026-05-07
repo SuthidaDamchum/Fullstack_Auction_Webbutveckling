@@ -1,26 +1,25 @@
 ﻿using Core.Interfaces;
-using Data;
 using Data.Entities;
+using Data.Interfaces;
 using Domain.DTOs;
-using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Crypto.Generators;
 
 namespace Core.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly AuctionDbContext _context;
+        private readonly IUserRepository _userRepository;
         private readonly TokenService _tokenService;
 
-        public AuthenticationService(AuctionDbContext context, TokenService tokenService)
+        public AuthenticationService(IUserRepository userRepository, TokenService tokenService)
         {
-            _context = context;
+            _userRepository = userRepository;
             _tokenService = tokenService;
+
         }
 
         public async Task<UserResponseDTO> Login(LoginRequestDTO loginRequestDTO)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == loginRequestDTO.Email);
+            var user = await _userRepository.GetUserByEmailAsync(loginRequestDTO.Email);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequestDTO.Password, user.PasswordHash))
                 throw new Exception("Invalid email or password");
@@ -39,7 +38,7 @@ namespace Core.Services
 
         public async Task<UserResponseDTO> Register(RegisterDTO registerDTO)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == registerDTO.Email);
+            var user = await _userRepository.GetUserByEmailAsync(registerDTO.Email);
 
             if (user != null)
             {
@@ -56,8 +55,8 @@ namespace Core.Services
                 Role = "user",
                 IsActive = true
             };
-            await _context.Users.AddAsync(newUser);
-            await _context.SaveChangesAsync();
+            await _userRepository.AddUserAsync(newUser);
+            await _userRepository.SaveChangesAsync();
 
             var token = _tokenService.CreateToken(newUser);
             return new UserResponseDTO
@@ -72,7 +71,7 @@ namespace Core.Services
 
         public async Task UpdatePassword(int id, UpdatePasswordDTO updatePasswordDTO)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(user => user.Id == id);
+            var user = await _userRepository.GetUserByIdAsync(id);
 
             //Kolla att den gamla strämmer
 
@@ -82,7 +81,7 @@ namespace Core.Services
 
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(updatePasswordDTO.NewPassword);
 
-            await _context.SaveChangesAsync();
+            await _userRepository.SaveChangesAsync();
 
         }
     }
