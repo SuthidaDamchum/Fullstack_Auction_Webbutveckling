@@ -9,14 +9,3 @@ C:\Documents\fullstack auktionslösning\Action_API\Domain\obj\Debug\net9.0\Domai
 C:\Documents\fullstack auktionslösning\Action_API\Domain\obj\Debug\net9.0\refint\Domain.dll
 C:\Documents\fullstack auktionslösning\Action_API\Domain\obj\Debug\net9.0\Domain.pdb
 C:\Documents\fullstack auktionslösning\Action_API\Domain\obj\Debug\net9.0\ref\Domain.dll
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\bin\Debug\net9.0\Domain.deps.json
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\bin\Debug\net9.0\Domain.dll
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\bin\Debug\net9.0\Domain.pdb
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.AssemblyInfoInputs.cache
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.AssemblyInfo.cs
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.csproj.CoreCompileInputs.cache
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.dll
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\refint\Domain.dll
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\Domain.pdb
-C:\Documents\fullstack auktionslösning\Auction_API\Domain\obj\Debug\net9.0\ref\Domain.dll
