@@ -13,7 +13,6 @@ namespace Domain.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        // Computed property, sparas ej i databasen
-        public bool IsOpen => DateTime.UtcNow < EndDate;
+        public bool IsOpen { get; set; }
     }
 }

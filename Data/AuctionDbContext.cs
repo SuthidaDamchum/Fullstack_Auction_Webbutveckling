@@ -1,5 +1,6 @@
 ﻿using Data.Configurations;
 using Data.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
@@ -10,11 +11,13 @@ namespace Data
               : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Auction> Auctions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AuctionConfiguration());
 
         }
     }
