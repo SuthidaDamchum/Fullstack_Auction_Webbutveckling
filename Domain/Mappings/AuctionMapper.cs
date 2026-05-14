@@ -6,7 +6,7 @@ namespace Domain.Mappings
 {
     public static class AuctionMapper
     {
-        public static AuctionDto ToDto(this Auction auction) => new AuctionDto
+        public static AuctionDTO ToDto(this Auction auction) => new AuctionDTO
         {
             Id = auction.Id,
             UserId = auction.UserId,               

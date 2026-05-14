@@ -1,8 +1,3 @@
-C:\Documents\fullstack auktionslösning\Action_API\Core\obj\Debug\net10.0\Core.csproj.AssemblyReference.cache
-C:\Documents\fullstack auktionslösning\Action_API\Core\obj\Debug\net10.0\Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Documents\fullstack auktionslösning\Action_API\Core\obj\Debug\net10.0\Core.AssemblyInfoInputs.cache
-C:\Documents\fullstack auktionslösning\Action_API\Core\obj\Debug\net10.0\Core.AssemblyInfo.cs
-C:\Documents\fullstack auktionslösning\Action_API\Core\obj\Debug\net10.0\Core.csproj.CoreCompileInputs.cache
 C:\Documents\fullstack auktionslösning\Auction_API\Core\bin\Debug\net10.0\Core.deps.json
 C:\Documents\fullstack auktionslösning\Auction_API\Core\bin\Debug\net10.0\Core.dll
 C:\Documents\fullstack auktionslösning\Auction_API\Core\bin\Debug\net10.0\Core.pdb

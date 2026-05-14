@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YWsnQ7NXEps=",
+  "dgSpecHash": "vsleoqEvKOU=",
   "success": true,
   "projectFilePath": "C:\\Documents\\fullstack auktionslösning\\Auction_API\\Core\\Core.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.7\\microsoft.entityframeworkcore.analyzers.10.0.7.nupkg.sha512",
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.7\\microsoft.entityframeworkcore.relational.10.0.7.nupkg.sha512",
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\10.0.7\\microsoft.entityframeworkcore.sqlserver.10.0.7.nupkg.sha512",
+    "C:\\Users\\suthi\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.7\\microsoft.entityframeworkcore.tools.10.0.7.nupkg.sha512",
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.7\\microsoft.extensions.caching.abstractions.10.0.7.nupkg.sha512",
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.7\\microsoft.extensions.caching.memory.10.0.7.nupkg.sha512",
     "C:\\Users\\suthi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.7\\microsoft.extensions.configuration.abstractions.10.0.7.nupkg.sha512",

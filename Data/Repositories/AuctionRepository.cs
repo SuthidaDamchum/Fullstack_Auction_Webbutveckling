@@ -15,7 +15,9 @@ namespace Data.Repositories
 
         public async Task<IEnumerable<Auction>> GetAllAsync(string? search)
         {
-            var query =  _context.Auctions.AsQueryable();
+            var query = _context.Auctions
+              .Include(a => a.CreatedBy)
+              .Where(a => a.EndDate > DateTime.UtcNow);
 
             if (!string.IsNullOrEmpty(search))
             {

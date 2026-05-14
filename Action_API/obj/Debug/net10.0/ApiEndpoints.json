@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Auction_API.Controllers.AuctionController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Auction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Auction_API.Controllers.AuthenticationController",
     "Method": "Login",
     "RelativePath": "api/Authentication/Login",

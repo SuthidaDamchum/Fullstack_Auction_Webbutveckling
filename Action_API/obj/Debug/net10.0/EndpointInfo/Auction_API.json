@@ -5,6 +5,27 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Auction": {
+      "get": {
+        "tags": [
+          "Auction"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Authentication/Login": {
       "post": {
         "tags": [

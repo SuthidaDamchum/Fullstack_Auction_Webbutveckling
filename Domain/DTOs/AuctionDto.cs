@@ -1,6 +1,6 @@
 ﻿namespace Domain.DTOs
 {
-    public class AuctionDto
+    public class AuctionDTO
     {
         public int Id { get; set; }
         public string Title { get; set; } = "";

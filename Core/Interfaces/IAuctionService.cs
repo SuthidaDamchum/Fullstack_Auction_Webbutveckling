@@ -5,6 +5,6 @@ namespace Core.Interfaces
 {
     public interface IAuctionService
     {
-        Task<IEnumerable<AuctionDto>> GetAllAsync(string? search);
+        Task<IEnumerable<AuctionDTO>> GetAllAsync(string? search);
     }
 }

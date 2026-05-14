@@ -28,7 +28,35 @@ namespace Data.Configurations
                         PasswordHash = "$2a$12$socZ4WBBbqi8WOHeAL5PE.sZo5l9/Z/q2KYID5zp1E6TGg6JCcRh6",
                         Role = "user",
                         IsActive = true
-                    }
+                    },
+
+                    new User
+                    {
+                        Id = 3,
+                        Name = "Suthida Damchum",
+                        Email = "suthida@hotmail.com",
+                        PasswordHash = "$2a$12$i5PUbFxSc6N7QH1WAHt1i.1S7RVcafYAWiyG36xG42LnCU917dJP",
+                        Role = "user",
+                        IsActive = true
+                    },
+                     new User
+                     {
+                         Id = 4,
+                         Name = "Rasmus Back",
+                         Email = "rasmus@hotmail.com",
+                         PasswordHash = "$2a$12$WQ3NsQgOPjctZwvk/dJu8emIZXV57JWUN0uD.QCYgqsFjneNk7uwG",
+                         Role = "user",
+                         IsActive = true
+                     },
+                     new User
+                     {
+                         Id = 5,
+                         Name = "Amanda Park",
+                         Email = "amanda@hotmail.com",
+                         PasswordHash = "$2a$12$MdZbX9THP5GtTJ/7lEJpcOLComityiZK7FejdUWiRCh1QhCmow4v",
+                         Role = "user",
+                         IsActive = true
+                     }
                 ); 
         }
     }
