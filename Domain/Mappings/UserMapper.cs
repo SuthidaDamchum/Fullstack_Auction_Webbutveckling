@@ -1,6 +1,5 @@
 ﻿using Data.Entities;
 using Domain.DTOs;
-
 namespace Domain.Mappings
 {
     public static class UserMapper
@@ -15,3 +14,4 @@ namespace Domain.Mappings
         };
     }
 }
+
