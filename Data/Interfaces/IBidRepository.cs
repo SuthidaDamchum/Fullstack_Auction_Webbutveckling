@@ -3,12 +3,12 @@ using Domain.Entities;
 
 namespace Data.Interfaces
 {
-    public class IBidRepository
+    public interface IBidRepository
     {
-        //Task<IEnumerable<Bid>> GetBidsByAuctionId(int id);
-        //Task<IEnumerable<Bid>> GetWinnerBid(); 
-        //Task<IEnumerable<Bid>> GetHighestBid();
-        //Task<IEnumerable<Bid>> DeleteBid();
-        //Task<IEnumerable<Bid>> GetUserBids();
+        Task<Bid> AddBid(Bid bid);
+        Task<IEnumerable<Bid>> GetBidsByAuctionId(int id);
+        Task<Bid> GetWinnerBid();
+        Task<Bid> GetHighestBid();
+        Task<IEnumerable<Bid>> DeleteBid(int auctionId);
     }
 }
