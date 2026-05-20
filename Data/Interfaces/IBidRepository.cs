@@ -7,8 +7,8 @@ namespace Data.Interfaces
     {
         Task<Bid> AddBid(Bid bid);
         Task<IEnumerable<Bid>> GetBidsByAuctionId(int id);
-        Task<Bid> GetWinnerBid();
-        Task<Bid> GetHighestBid();
-        Task<IEnumerable<Bid>> DeleteBid(int auctionId);
+        Task<Bid> GetWinnerBid(int auctionId);
+        Task<Bid> GetHighestBid(int auctionId);
+        Task<IEnumerable<Bid>> DeleteBid(int Id);
     }
 }
