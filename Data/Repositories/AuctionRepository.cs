@@ -26,5 +26,10 @@ namespace Data.Repositories
 
             return await query.ToListAsync<Auction>();
         }
+
+        public async Task<Auction> GetAuctionById(int id)
+        {
+            return await _context.Auctions.FindAsync(id);
+        }
     }
 }
