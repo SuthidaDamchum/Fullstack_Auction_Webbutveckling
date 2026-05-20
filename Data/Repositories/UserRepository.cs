@@ -1,4 +1,4 @@
-﻿using Data.Entities;
+﻿using Domain.Entities;
 using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

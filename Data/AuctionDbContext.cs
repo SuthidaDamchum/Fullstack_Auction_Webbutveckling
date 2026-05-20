@@ -1,5 +1,5 @@
 ﻿using Data.Configurations;
-using Data.Entities;
+using Domain.Entities;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

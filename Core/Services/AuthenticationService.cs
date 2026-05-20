@@ -1,5 +1,5 @@
 ﻿using Core.Interfaces;
-using Data.Entities;
+using Domain.Entities;
 using Data.Interfaces;
 using Domain.DTOs;
 

@@ -10,13 +10,13 @@ namespace Domain.Mappings
         {
             Id = auction.Id,
             UserId = auction.UserId,               
-            CreatedBy = auction.CreatedBy.Name,
+            CreatedBy = auction.CreatedBy?.Name,
             Title = auction.Title,
             Description = auction.Description,
             Price = auction.Price,
             StartDate = auction.StartDate,
             EndDate = auction.EndDate,
-            IsOpen = auction.IsOpen
+            IsActive = auction.IsActive
         };
     }
 }

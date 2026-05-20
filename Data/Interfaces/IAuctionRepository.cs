@@ -5,5 +5,6 @@ namespace Data.Interfaces
     public interface IAuctionRepository
     {
         Task<IEnumerable<Auction>> GetAllAsync(string? search);
+        Task <Auction> GetAuctionById(int id);
     }
 }
