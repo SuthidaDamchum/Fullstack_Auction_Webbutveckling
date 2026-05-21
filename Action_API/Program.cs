@@ -23,7 +23,9 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 builder.Services.AddScoped<IAuctionService, AuctionService>();
-//builder.Services.AddScoped<IBidService, Service>();
+builder.Services.AddScoped<IBidService, BidServicev>();
+builder.Services.AddScoped<IBidRepository, BidRepository>();
+
 
 builder.Services.AddScoped<TokenService>();
 

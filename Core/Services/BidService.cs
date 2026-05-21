@@ -52,6 +52,8 @@ namespace Core.Services
 
             var remainingBids = await _bidRepository.DeleteBid(id);
 
+            if (remainingBids == null) return null;
+
             return remainingBids.Select(b => b.ToDto());
         }
 

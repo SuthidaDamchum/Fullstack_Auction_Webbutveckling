@@ -14,5 +14,12 @@ namespace Domain.Mappings
             AuctionId = bid.AuctionId,
             UserId = bid.UserId
         };
+
+        public static Bid ToEntity(this BidDTO bidDTO) => new Bid
+        {
+            Amount = bidDTO.Amount,
+            AuctionId = bidDTO.AuctionId,
+            UserId = bidDTO.UserId
+        };
     }
 }
