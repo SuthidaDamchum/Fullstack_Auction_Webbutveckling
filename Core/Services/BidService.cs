@@ -3,7 +3,6 @@ using Data.Interfaces;
 using Domain.DTOs;
 using Domain.Entities;
 using Domain.Mappings;
-using Microsoft.EntityFrameworkCore;
 
 namespace Core.Services
 {
@@ -12,7 +11,7 @@ namespace Core.Services
         private readonly IBidRepository _bidRepository;
         private readonly IAuctionRepository _auctionRepository;
 
-    
+
         public BidServicev(IBidRepository bidRepository, IAuctionRepository auctionRepository)
         {
             _bidRepository = bidRepository;
@@ -41,24 +40,55 @@ namespace Core.Services
         }
 
 
-        public Task<IEnumerable<BidDTO>> DeleteBid(int Id)
+        public async Task<IEnumerable<BidDTO>> DeleteBid(int id)
         {
-            throw new NotImplementedException();
+            var bid = await _bidRepository.GetBidById(id);
+
+            if (bid == null) return null;
+
+            var auction = await _auctionRepository.GetAuctionById(bid.AuctionId);
+            if (!auction.IsOpen)
+                throw new Exception("The auction is closed");
+
+            var remainingBids = await _bidRepository.DeleteBid(id);
+
+            return remainingBids.Select(b => b.ToDto());
         }
 
-        public Task<IEnumerable<BidDTO>> GetBidsByAuctionId(int id)
+        public async Task<BidDTO> GetBidById(int id)
         {
-            throw new NotImplementedException();
+            var bid = await _bidRepository.GetBidById(id);
+
+            if (bid == null) return null;
+
+            return bid.ToDto();
         }
 
-        public Task<BidDTO> GetHighestBid(int auctionId)
+        public async Task<IEnumerable<BidDTO>> GetBidsByAuctionId(int auctionId)
         {
-            throw new NotImplementedException();
+            var bids = await _bidRepository.GetBidsByAuctionId(auctionId);
+
+            return bids.Select(b => b.ToDto());
         }
 
-        public Task<BidDTO> GetWinnerBid(int auctionId)
+        public async Task<BidDTO> GetHighestBid(int auctionId)
         {
-            throw new NotImplementedException();
+            var highestBid = await _bidRepository.GetHighestBid(auctionId);
+
+            if (highestBid == null) return null;
+
+            return highestBid.ToDto();
         }
+
+        public async Task<BidDTO> GetWinnerBid(int auctionId)
+        {
+
+            var winner = await _bidRepository.GetWinnerBid(auctionId);
+
+            if (winner == null) return null;
+
+            return winner.ToDto();
+        }
+    
     }
 }
