@@ -18,6 +18,14 @@ namespace Data.Repositories
             await _context.Users.AddAsync(user);
         }
 
+        public async Task DeactivateUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null) throw new Exception("User not found");
+            user.IsActive = false;
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _context.Users.Where(user => user.Email == email)

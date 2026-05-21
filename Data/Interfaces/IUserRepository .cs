@@ -8,6 +8,6 @@ namespace Data.Interfaces
         Task<User> GetUserByIdAsync(int id);
         Task AddUserAsync(User user);
         Task SaveChangesAsync();
-       
+        Task DeactivateUser(int id);
     }
 }
