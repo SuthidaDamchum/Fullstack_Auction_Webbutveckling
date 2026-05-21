@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    partial class AuctionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260521125923_UpdateMockdata")]
+    partial class UpdateMockdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,7 +94,7 @@ namespace Data.Migrations
                             Price = 15000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Gaming PC",
-                            UserId = 3
+                            UserId = 2
                         },
                         new
                         {
@@ -102,7 +105,7 @@ namespace Data.Migrations
                             Price = 6000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Sony PlayStation 5",
-                            UserId = 3
+                            UserId = 2
                         },
                         new
                         {
@@ -113,7 +116,7 @@ namespace Data.Migrations
                             Price = 9000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "iPad Pro 12.9",
-                            UserId = 4
+                            UserId = 2
                         },
                         new
                         {
@@ -124,7 +127,7 @@ namespace Data.Migrations
                             Price = 4000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Samsung 4K Monitor",
-                            UserId = 4
+                            UserId = 2
                         },
                         new
                         {
@@ -135,7 +138,7 @@ namespace Data.Migrations
                             Price = 7000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "DJI Drone",
-                            UserId = 5
+                            UserId = 2
                         },
                         new
                         {
@@ -146,7 +149,7 @@ namespace Data.Migrations
                             Price = 1500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Mechanical Keyboard",
-                            UserId = 5
+                            UserId = 2
                         },
                         new
                         {
@@ -157,7 +160,7 @@ namespace Data.Migrations
                             Price = 3500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Nintendo Switch OLED",
-                            UserId = 3
+                            UserId = 2
                         },
                         new
                         {
@@ -168,7 +171,7 @@ namespace Data.Migrations
                             Price = 4500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Apple Watch Series 7",
-                            UserId = 4
+                            UserId = 2
                         });
                 });
 
