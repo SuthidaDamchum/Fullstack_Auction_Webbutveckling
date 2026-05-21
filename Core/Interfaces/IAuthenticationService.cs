@@ -12,5 +12,7 @@ namespace Core.Interfaces
 
         //UpdatePassword – tar emot userId och UpdatePasswordDTO
         Task UpdatePassword(int id, UpdatePasswordDTO updatePasswordDTO);
+     
     }
 }
+

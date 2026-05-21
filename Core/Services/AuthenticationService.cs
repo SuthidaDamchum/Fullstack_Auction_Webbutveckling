@@ -17,6 +17,12 @@ namespace Core.Services
 
         }
 
+        public async Task DeactivateUser(int id)
+        {
+           
+
+        }
+
         public async Task<UserResponseDTO> Login(LoginRequestDTO loginRequestDTO)
         {
             var user = await _userRepository.GetUserByEmailAsync(loginRequestDTO.Email);
@@ -24,6 +30,8 @@ namespace Core.Services
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequestDTO.Password, user.PasswordHash))
                 throw new Exception("Invalid email or password");
 
+            if (!user.IsActive)
+                throw new Exception("This account has been deactivated!");
             var token = _tokenService.CreateToken(user);
 
             return new UserResponseDTO
