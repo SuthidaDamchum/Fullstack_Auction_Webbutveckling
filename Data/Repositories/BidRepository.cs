@@ -47,11 +47,11 @@ namespace Data.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Bid>> GetBidsByAuctionId(int id)
+        public async Task<IEnumerable<Bid>> GetBidsByAuctionId(int auctionId)
         {
             return await _context.Bids
                 //Hämta alla bud som tillhör denna aktion
-                .Where(b => b.AuctionId == id)
+                .Where(b => b.AuctionId == auctionId)
                 //Sortera högsta bud
                 .OrderByDescending(b => b.Amount)
                 .ToListAsync();
@@ -69,8 +69,13 @@ namespace Data.Repositories
         {
             return await _context.Bids
                 .Where(b => b.AuctionId == auctionId)
-                  .OrderByDescending(b => b.Amount)
+                .OrderByDescending(b => b.Amount)
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<Bid> GetBidById(int id)
+        {
+            return await _context.Bids.FindAsync(id);
         }
     }
 }

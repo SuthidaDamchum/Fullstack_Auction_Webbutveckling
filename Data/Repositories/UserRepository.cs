@@ -1,7 +1,6 @@
-﻿using Domain.Entities;
-using Data.Interfaces;
+﻿using Data.Interfaces;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Data.Repositories
 {
