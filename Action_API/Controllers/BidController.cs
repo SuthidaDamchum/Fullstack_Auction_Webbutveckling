@@ -1,8 +1,7 @@
 ﻿using Core.Interfaces;
-using Data.Interfaces;
 using Domain.DTOs;
 using Domain.Mappings;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auction_API.Controllers
@@ -19,7 +18,7 @@ namespace Auction_API.Controllers
         }
 
         [HttpPost("AddBid")]
-
+        [Authorize]
         public async Task<IActionResult> AddBid([FromBody] BidDTO bidDTO)
         {
             if (bidDTO == null) return BadRequest("Invalid bid");
@@ -32,9 +31,9 @@ namespace Auction_API.Controllers
             return Ok(addBid);
         }
 
-        //
         // Hämta alla bud på en auktion
         [HttpGet("{auctionId}/GetbidsByAuctionId")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetBidsByAuctionId(int auctionId)
         {
             var getBids = await _bidService.GetBidsByAuctionId(auctionId);
@@ -44,6 +43,7 @@ namespace Auction_API.Controllers
         }
 
         [HttpGet("{auctionId}/Winner")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetWinnerBid(int auctionId)
         {
             var getWinner = await _bidService.GetWinnerBid(auctionId);
@@ -52,6 +52,7 @@ namespace Auction_API.Controllers
         }
 
         [HttpGet("{auctionId}/Highestbid")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetHighestBid(int auctionId)
         {
             var highestBid = await _bidService.GetHighestBid(auctionId);
@@ -60,19 +61,20 @@ namespace Auction_API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
 
         public async Task<IActionResult> DeleteBid(int id)
         {
             var deleteBid = await _bidService.DeleteBid(id);
 
-            if (deleteBid == null) return BadRequest("Cannot delete someone has placed a higher bid!");
+            if (deleteBid == null) return NotFound("No bid found or someone has placed a higher bid!");
 
 
             return Ok(deleteBid);
         }
 
         [HttpGet("{id}/GetBidById")]
-
+        [AllowAnonymous]
         public async Task<IActionResult> GetBidById(int id)
         {
             var getBidById = await _bidService.GetBidById(id);
