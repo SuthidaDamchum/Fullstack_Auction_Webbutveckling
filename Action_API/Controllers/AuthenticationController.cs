@@ -22,8 +22,15 @@ namespace Auction_API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
         {
             if (request == null) return BadRequest("Invalid request");
-            var result = await _authenticationService.Login(request);
-            return Ok(result);
+            try
+            {
+                var result = await _authenticationService.Login(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message); 
+            }
         }
 
         [HttpPost("Register")]
@@ -44,5 +51,7 @@ namespace Auction_API.Controllers
             await _authenticationService.UpdatePassword(id, updatePasswordDTO);
             return Ok("Password updated successfully");
         }
+
+      
     }
 }
