@@ -39,6 +39,7 @@ namespace Core.Services
             return addedBid.ToDto();
         }
 
+
         public async Task<IEnumerable<BidDTO>> DeleteBid(int id)
         {
             var bid = await _bidRepository.GetBidById(id);

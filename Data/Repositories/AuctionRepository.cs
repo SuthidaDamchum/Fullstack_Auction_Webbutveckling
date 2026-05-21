@@ -1,6 +1,7 @@
 ﻿using Data.Interfaces;
 using Domain.DTOs;
 using Domain.Entities;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
@@ -67,8 +68,8 @@ namespace Data.Repositories
         {
             //Find ID
             var auction = await _context.Auctions.FindAsync(id);
-
-            if (auction == null) throw new Exception("The auction is not found");
+             
+            if (auction == null) throw new Exception("Auction not found");
 
             //if can change, only 
             auction.Title = updateAuctionDTO.Title;

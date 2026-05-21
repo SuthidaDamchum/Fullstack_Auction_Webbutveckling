@@ -1,77 +1,8 @@
 [
   {
     "ContainingType": "Auction_API.Controllers.AuctionController",
-    "Method": "DeactivateAuction",
-    "RelativePath": "api/Auction/{id}/deactivate",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuctionController",
-    "Method": "UpdateAuction",
-    "RelativePath": "api/Auction/{id}/EditAuction",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "updateAuctionDTO",
-        "Type": "Domain.DTOs.UpdateAuctionDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuctionController",
-    "Method": "GetAuctionById",
-    "RelativePath": "api/Auction/{id}/GetAuctionById",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuctionController",
-    "Method": "CreateAuction",
-    "RelativePath": "api/Auction/AddAuction",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "Domain.DTOs.CreateAuctionDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuctionController",
     "Method": "GetAllAsync",
-    "RelativePath": "api/Auction/GetAllAuctions",
+    "RelativePath": "api/Auction",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -80,43 +11,6 @@
         "Name": "search",
         "Type": "System.String",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuctionController",
-    "Method": "SearchClosedAuctions",
-    "RelativePath": "api/Auction/SearchClosedAuctions",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "title",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.AuthenticationController",
-    "Method": "UpdatePassword",
-    "RelativePath": "api/Authentication/{id}/UpdatePassword",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "updatePasswordDTO",
-        "Type": "Domain.DTOs.UpdatePasswordDTO",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -154,58 +48,10 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "GetBidsByAuctionId",
-    "RelativePath": "api/Bid/{auctionId}/GetbidsByAuctionId",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "auctionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "GetHighestBid",
-    "RelativePath": "api/Bid/{auctionId}/Highestbid",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "auctionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "GetWinnerBid",
-    "RelativePath": "api/Bid/{auctionId}/Winner",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "auctionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "DeleteBid",
-    "RelativePath": "api/Bid/{id}",
-    "HttpMethod": "DELETE",
+    "ContainingType": "Auction_API.Controllers.AuthenticationController",
+    "Method": "UpdatePassword",
+    "RelativePath": "api/Authentication/UpdatePassword/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -213,37 +59,10 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "GetBidById",
-    "RelativePath": "api/Bid/{id}/GetBidById",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+      },
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auction_API.Controllers.BidController",
-    "Method": "AddBid",
-    "RelativePath": "api/Bid/AddBid",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "bidDTO",
-        "Type": "Domain.DTOs.BidDTO",
+        "Name": "updatePasswordDTO",
+        "Type": "Domain.DTOs.UpdatePasswordDTO",
         "IsRequired": true
       }
     ],

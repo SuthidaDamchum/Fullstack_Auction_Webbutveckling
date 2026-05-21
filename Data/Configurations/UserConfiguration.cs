@@ -16,7 +16,7 @@ namespace Data.Configurations
                         Id = 1,
                         Name = "Admin",
                         Email = "admin@auction.com",
-                        PasswordHash = "$2a$12$wawXKUQVTcH3TQb7CJW0QeWlW6ok1wN2C7LLsZZCVVRZuD2E7w7em",
+                        PasswordHash = "$2a$12$k.CAYoiBFeMKOU6wVgeH6eMLtrVlynJBz/kTM1eGAcSkMn3W5WjsO",
                         Role = "admin",
                         IsActive = true
                     },
