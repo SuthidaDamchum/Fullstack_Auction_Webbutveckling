@@ -2,7 +2,7 @@
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
   </Folder>
-  <Project Path="Action_API/Auction_API.csproj" />
+  <Project Path="Auction_API/Auction_API.csproj" />
   <Project Path="Core/Core.csproj" />
   <Project Path="Data/Data.csproj" />
   <Project Path="Domain/Domain.csproj" />

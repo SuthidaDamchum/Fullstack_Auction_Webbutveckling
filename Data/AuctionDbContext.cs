@@ -1,6 +1,5 @@
 ﻿using Data.Configurations;
 using Domain.Entities;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
