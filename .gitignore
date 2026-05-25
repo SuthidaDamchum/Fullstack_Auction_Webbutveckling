@@ -1,18 +1,15 @@
 # Build folders
-bin/
-obj/
+**/bin/
+**/obj/
 
 # Visual Studio
-.vs/
+**/.vs/
 *.user
 *.suo
 
-# Environment
+# Environment - HEMLIGA FILER
 appsettings.Development.json
 
-**/bin/
-**/obj/
-**/.vs/
-*.user
+# Frontend
 node_modules/
 dist/

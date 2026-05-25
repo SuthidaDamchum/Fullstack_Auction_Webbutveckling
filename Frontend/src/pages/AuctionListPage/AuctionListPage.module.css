@@ -1,0 +1,94 @@
+/* Hela sida */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Rubriker */
+.container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Sökfältet */
+.search {
+  display: block; /*Ta hela raden*/
+  width: 100%; /*full bred*/
+  padding: 0.75rem; /*luft inuti*/
+  margin-bottom: 2rem; /*luft under*/
+  border: 1px solid #ccc; /*grå kant*/
+  border-radius: 8px; /*rundade hörn*/
+  font-size: 1rem; /*textstrorlek*/
+}
+
+.search:focus {
+  outline: none;
+  border-color: #4a90e2; /*blå kant när man skriver*/
+}
+
+/*Runätet med kort*/
+.grid {
+  display: grid;
+  /*3 kolumner som är lika breda*/
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5 rem; /*mellanrum mellan korten*/
+}
+/*varje auktionskort*/
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+/*när man håller musen över kortet*/
+.card:hover {
+  transform: translateY(-4px); /*lyfts upp lite*/
+}
+
+/*bilden i kortet*/
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /*bilden fyller utan att bli konstig*/
+}
+
+/*Texten i kortet*/
+.cardBody {
+  padding: 1rem;
+}
+.cardBody h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.cardBody p {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/*Visar knappen*/
+.link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: #357abd;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /*en kolumn på mobil*/
+  }
+}

@@ -1,9 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-
+import AuctionListPage from "./pages/AuctionListPage/AuctionListPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
-import { useState } from "react";
 
 const App = () => {
   return (
@@ -11,6 +9,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/auctions" element={<AuctionListPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
