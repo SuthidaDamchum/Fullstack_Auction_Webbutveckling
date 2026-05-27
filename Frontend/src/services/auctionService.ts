@@ -9,3 +9,8 @@ export const getAllAuctions = async (search?: string): Promise<Auction[]> => {
   });
   return response.data;
 };
+
+export const getAuctionById = async (auctionId: number): Promise<Auction> => {
+  const response = await axios.get(`${API}/${auctionId}/GetAuctionById`);
+  return response.data;
+};

@@ -5,8 +5,8 @@ export interface Auction {
   title: string;
   description: string;
   price: number;
-  startdate: string;
-  enddate: string;
+  startDate: string;
+  endDate: string;
   imageUrl: string;
   isOpen: boolean;
   isActive: boolean;

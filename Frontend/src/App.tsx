@@ -4,6 +4,8 @@ import AuctionListPage from "./pages/AuctionListPage/AuctionListPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import AuctionDetailPage from "./pages/AuctionDetailPage/AuctionDetailPage";
+import ClosedAuctionsPage from "./pages/ClosedAuctionsPage/ClosedAuctionsPage";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/auctions" element={<AuctionListPage />} />
+          <Route path="/auctions/:id" element={<AuctionDetailPage />} />
+          <Route path="/closed" element={<ClosedAuctionsPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

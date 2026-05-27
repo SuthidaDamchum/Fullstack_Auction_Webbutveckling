@@ -35,7 +35,11 @@ const AuctionListPage = () => {
 
       <div className={styles.grid}>
         {filteredAuctions.map((auction) => (
-         <Link key={auction.id} to={`/auctions/${auction.id}`} className={styles.card}>
+          <Link
+            key={auction.id}
+            to={`/auctions/${auction.id}`}
+            className={styles.card}
+          >
             {auction.imageUrl && (
               <img src={auction.imageUrl} alt={auction.title} />
             )}
@@ -43,9 +47,8 @@ const AuctionListPage = () => {
               <h2>{auction.title}</h2>
               <p>{auction.description}</p>
               <p>Pris: {auction.price} kr</p>
-    
             </div>
-         </Link>
+          </Link>
         ))}
       </div>
     </div>
