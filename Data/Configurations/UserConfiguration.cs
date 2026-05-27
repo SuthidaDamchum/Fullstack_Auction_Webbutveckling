@@ -35,7 +35,7 @@ namespace Data.Configurations
                         Id = 3,
                         Name = "Suthida Damchum",
                         Email = "suthida@hotmail.com",
-                        PasswordHash = "$2a$12$i5PUbFxSc6N7QH1WAHt1i.1S7RVcafYAWiyG36xG42LnCU917dJP",
+                        PasswordHash = "$2a$12$u3jUPddEgQPVoJATUd2VxOJGzzaO89p2eDB1Xe4x1umW4ceTEmkfK",
                         Role = "user",
                         IsActive = true
                     },

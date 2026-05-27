@@ -14,3 +14,10 @@ export const getAuctionById = async (auctionId: number): Promise<Auction> => {
   const response = await axios.get(`${API}/${auctionId}/GetAuctionById`);
   return response.data;
 };
+
+export const getClosedAuctions = async (search?: string): Promise<Auction[]> => {
+   const response = await axios.get(`${API}/SearchClosedAuctions`, {
+      params: { search }
+   });
+   return response.data;
+};
