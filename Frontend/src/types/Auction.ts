@@ -11,3 +11,13 @@ export interface Auction {
   isOpen: boolean;
   isActive: boolean;
 }
+
+export interface CreateAuction {
+    userId: number;
+    title: string;
+    description: string;
+    price: number;
+    startDate: string;
+    endDate: string;
+    imageUrl?: string;
+}
