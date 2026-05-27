@@ -26,6 +26,7 @@ builder.Services.AddScoped<IBidRepository, BidRepository>();
 builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -60,6 +61,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 

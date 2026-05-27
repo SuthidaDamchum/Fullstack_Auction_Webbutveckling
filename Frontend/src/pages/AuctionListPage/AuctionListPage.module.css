@@ -1,7 +1,5 @@
 /* Hela sida */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 2rem;
 }
 
@@ -34,7 +32,7 @@
   display: grid;
   /*3 kolumner som är lika breda*/
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5 rem; /*mellanrum mellan korten*/
+  gap: 1.5rem; /*mellanrum mellan korten*/
 }
 /*varje auktionskort*/
 .card {
@@ -43,6 +41,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 /*när man håller musen över kortet*/
@@ -50,11 +51,11 @@
   transform: translateY(-4px); /*lyfts upp lite*/
 }
 
-/*bilden i kortet*/
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover; /*bilden fyller utan att bli konstig*/
+  object-fit: contain; /* ← visa hela bilden! */
+  background-color: #f5f5f5; /* ← grå bakgrund på tomma ytor */
 }
 
 /*Texten i kortet*/

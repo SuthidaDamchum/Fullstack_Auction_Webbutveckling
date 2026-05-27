@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    partial class AuctionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260526133757_AddImageUrlSeeding")]
+    partial class AddImageUrlSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +72,7 @@ namespace Data.Migrations
                             Id = 1,
                             Description = "Apple MacBook Pro 13 tum, 16GB RAM, 512GB SSD",
                             EndDate = new DateTime(2026, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/10applewatch.jpg",
+                            ImageUrl = "https://localhost:7140/macbook.jpg",
                             IsActive = true,
                             Price = 8000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -81,7 +84,7 @@ namespace Data.Migrations
                             Id = 2,
                             Description = "Apple iPhone 13 Pro 256GB, Pacific Blue",
                             EndDate = new DateTime(2026, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/2iphone13pro.jpg",
+                            ImageUrl = "https://localhost:7140/iphone.jpg",
                             IsActive = true,
                             Price = 5000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -93,7 +96,7 @@ namespace Data.Migrations
                             Id = 3,
                             Description = "RTX 3080, Intel i9, 32GB RAM, 1TB SSD",
                             EndDate = new DateTime(2026, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/3GamingPC.jpg",
+                            ImageUrl = "https://localhost:7140/gaming-pc.jpg",
                             IsActive = true,
                             Price = 15000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -105,7 +108,7 @@ namespace Data.Migrations
                             Id = 4,
                             Description = "PS5 med två handkontroller och 5 spel",
                             EndDate = new DateTime(2026, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/4SonyPlayStation5.jpg",
+                            ImageUrl = "https://localhost:7140/ps5.jpg",
                             IsActive = true,
                             Price = 6000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -117,7 +120,7 @@ namespace Data.Migrations
                             Id = 5,
                             Description = "Apple iPad Pro 12.9 tum, 256GB, WiFi + Cellular",
                             EndDate = new DateTime(2026, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/5ipad.jpg",
+                            ImageUrl = "https://localhost:7140/ipad.jpg",
                             IsActive = true,
                             Price = 9000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -129,7 +132,7 @@ namespace Data.Migrations
                             Id = 6,
                             Description = "Samsung 32 tum 4K UHD monitor, 144Hz",
                             EndDate = new DateTime(2026, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/6monitor.jpg",
+                            ImageUrl = "https://localhost:7140/monitor.jpg",
                             IsActive = true,
                             Price = 4000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -141,7 +144,7 @@ namespace Data.Migrations
                             Id = 7,
                             Description = "DJI Mavic Air 2, 4K kamera, 34 min flygtid",
                             EndDate = new DateTime(2026, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/7DJIDrone.jpg",
+                            ImageUrl = "https://localhost:7140/drone.jpg",
                             IsActive = true,
                             Price = 7000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -153,7 +156,7 @@ namespace Data.Migrations
                             Id = 8,
                             Description = "Corsair K95 RGB, Cherry MX switches",
                             EndDate = new DateTime(2026, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/8MechanicalKeyboard.jpg",
+                            ImageUrl = "https://localhost:7140/keyboard.jpg",
                             IsActive = true,
                             Price = 1500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -165,7 +168,7 @@ namespace Data.Migrations
                             Id = 9,
                             Description = "Nintendo Switch OLED med 10 spel",
                             EndDate = new DateTime(2026, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/9NintendoSwitchOLED.jpg",
+                            ImageUrl = "https://localhost:7140/nintendo.jpg",
                             IsActive = true,
                             Price = 3500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -177,7 +180,7 @@ namespace Data.Migrations
                             Id = 10,
                             Description = "Apple Watch Series 7, 45mm, Midnight",
                             EndDate = new DateTime(2026, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/10applewatch.jpg",
+                            ImageUrl = "https://localhost:7140/applewatch.jpg",
                             IsActive = true,
                             Price = 4500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),

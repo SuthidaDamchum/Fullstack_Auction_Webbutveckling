@@ -13,6 +13,7 @@ namespace Domain.Mappings
             Title = auction.Title,
             Description = auction.Description,
             Price = auction.Price,
+            ImageUrl = auction.ImageUrl,
             StartDate = auction.StartDate,
             EndDate = auction.EndDate,
             IsActive = auction.IsActive

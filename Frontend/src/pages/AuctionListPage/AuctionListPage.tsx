@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { Auction } from "../../types/Auction";
 import { getAllAuctions } from "../../services/auctionService";
 import styles from "./AuctionListPage.module.css";
+import { Link } from "react-router-dom";
 
 const AuctionListPage = () => {
   const [auctions, setAuctions] = useState<Auction[]>([]);
@@ -34,15 +35,17 @@ const AuctionListPage = () => {
 
       <div className={styles.grid}>
         {filteredAuctions.map((auction) => (
-          <div key={auction.id} className={styles.card}>
+         <Link key={auction.id} to={`/auctions/${auction.id}`} className={styles.card}>
             {auction.imageUrl && (
               <img src={auction.imageUrl} alt={auction.title} />
             )}
-            <h2>{auction.title}</h2>
-            <p>{auction.description}</p>
-            <p>Pris: {auction.price} kr</p>
-            <a href={`/auctions/${auction.id}`}>Visa</a>
-          </div>
+            <div className={styles.cardBody}>
+              <h2>{auction.title}</h2>
+              <p>{auction.description}</p>
+              <p>Pris: {auction.price} kr</p>
+    
+            </div>
+         </Link>
         ))}
       </div>
     </div>
