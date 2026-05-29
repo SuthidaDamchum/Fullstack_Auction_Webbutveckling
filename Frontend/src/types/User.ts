@@ -6,10 +6,10 @@ export interface User {
   token: string;
 }
 
-export interface UserDTO{
+export interface UserDTO {
   id: number;
   name: string;
   email: string;
-  role:string;
+  role: string;
   isActive: boolean;
 }
