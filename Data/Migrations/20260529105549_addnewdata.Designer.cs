@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    partial class AuctionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260529105549_addnewdata")]
+    partial class addnewdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,7 +71,7 @@ namespace Data.Migrations
                             Id = 1,
                             Description = "Apple MacBook Pro 13 tum, 16GB RAM, 512GB SSD",
                             EndDate = new DateTime(2026, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/1MacBook.png",
+                            ImageUrl = "https://localhost:7140/1MacBookPro2020.jpg",
                             IsActive = true,
                             Price = 3000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -80,7 +83,7 @@ namespace Data.Migrations
                             Id = 2,
                             Description = "Apple iPhone 13 Pro 256GB, Pacific Blue",
                             EndDate = new DateTime(2026, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/2iphone.jpg",
+                            ImageUrl = "https://localhost:7140/2iphone13pro.jpg",
                             IsActive = true,
                             Price = 2500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -104,9 +107,9 @@ namespace Data.Migrations
                             Id = 4,
                             Description = "PS5 med två handkontroller och 5 spel",
                             EndDate = new DateTime(2026, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/4playstation5.png",
+                            ImageUrl = "https://localhost:7140/4SonyPlayStation5.jpg",
                             IsActive = true,
-                            Price = 5000m,
+                            Price = 400m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Sony PlayStation 5",
                             UserId = 2
@@ -116,7 +119,7 @@ namespace Data.Migrations
                             Id = 5,
                             Description = "Apple iPad Pro 12.9 tum, 256GB, WiFi + Cellular",
                             EndDate = new DateTime(2026, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/5Ipad.png",
+                            ImageUrl = "https://localhost:7140/5ipad.jpg",
                             IsActive = true,
                             Price = 2600m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -128,7 +131,7 @@ namespace Data.Migrations
                             Id = 6,
                             Description = "Samsung 32 tum 4K UHD monitor, 144Hz",
                             EndDate = new DateTime(2026, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/6sumsung.png",
+                            ImageUrl = "https://localhost:7140/6monitor.jpg",
                             IsActive = true,
                             Price = 2000m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -140,7 +143,7 @@ namespace Data.Migrations
                             Id = 7,
                             Description = "DJI Mavic Air 2, 4K kamera, 34 min flygtid",
                             EndDate = new DateTime(2026, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/7.png",
+                            ImageUrl = "https://localhost:7140/7DJIDrone.jpg",
                             IsActive = true,
                             Price = 3500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -164,7 +167,7 @@ namespace Data.Migrations
                             Id = 9,
                             Description = "Nintendo Switch OLED med 10 spel",
                             EndDate = new DateTime(2026, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/9.png",
+                            ImageUrl = "https://localhost:7140/9NintendoSwitchOLED.jpg",
                             IsActive = true,
                             Price = 1500m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -176,7 +179,7 @@ namespace Data.Migrations
                             Id = 10,
                             Description = "Apple Watch Series 7, 45mm, Midnight",
                             EndDate = new DateTime(2026, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImageUrl = "https://localhost:7140/10jpg",
+                            ImageUrl = "https://localhost:7140/10applewatch.jpg",
                             IsActive = true,
                             Price = 2400m,
                             StartDate = new DateTime(2026, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -351,7 +354,7 @@ namespace Data.Migrations
                             Email = "suthida@hotmail.com",
                             IsActive = true,
                             Name = "Suthida Damchum",
-                            PasswordHash = "$2a$12$M71HKUQxR3DzFHv57qraSeOrkOXyUbb9QKIbQur.uLRGEpoyhC6NG",
+                            PasswordHash = "$2a$12$u3jUPddEgQPVoJATUd2VxOJGzzaO89p2eDB1Xe4x1umW4ceTEmkfK",
                             Role = "user"
                         },
                         new
@@ -360,7 +363,7 @@ namespace Data.Migrations
                             Email = "rasmus@hotmail.com",
                             IsActive = true,
                             Name = "Rasmus Back",
-                            PasswordHash = "$2a$12$nra4y5TWIclit4uNxe4kB.Cc69sjhrs9M9Xm5QHIiuktsn0KdXwsa",
+                            PasswordHash = "$2a$12$WQ3NsQgOPjctZwvk/dJu8emIZXV57JWUN0uD.QCYgqsFjneNk7uwG",
                             Role = "user"
                         },
                         new
@@ -369,7 +372,7 @@ namespace Data.Migrations
                             Email = "amanda@hotmail.com",
                             IsActive = true,
                             Name = "Amanda Park",
-                            PasswordHash = "$2a$12$7MDFLndGn.n2BiDRw7W3Kem1DAztZUNgpmSbK1zOmyHk7h0VDarBS",
+                            PasswordHash = "$2a$12$MdZbX9THP5GtTJ/7lEJpcOLComityiZK7FejdUWiRCh1QhCmow4v",
                             Role = "user"
                         });
                 });
