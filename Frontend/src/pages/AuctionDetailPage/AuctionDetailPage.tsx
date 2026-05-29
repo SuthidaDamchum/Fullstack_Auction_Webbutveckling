@@ -75,7 +75,7 @@ const AuctionDetailPage = () => {
           <img
             src={auction.imageUrl}
             alt={auction.title}
-            className={styles.mainImage}
+            className={styles.image}
           />
         )}
         <h1>{auction.title}</h1>

@@ -13,7 +13,6 @@
         public string ImageUrl { get; set; }
         public bool IsOpen => EndDate > DateTime.Now;
         public bool IsActive { get; set; } = true;
-
         public ICollection<Bid> Bids { get; set; }
     }
 }

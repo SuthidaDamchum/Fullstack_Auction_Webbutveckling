@@ -11,7 +11,7 @@ const Navbar = () => {
       {/* 👉 Loggan längst till vänster
         Klickar man på den → går man till /auctions   */}
       <Link to="/auctions" className={styles.logo}>
-        AuctionApp
+        🏷️Auktionshuset
       </Link>
 
       <div className={styles.links}>

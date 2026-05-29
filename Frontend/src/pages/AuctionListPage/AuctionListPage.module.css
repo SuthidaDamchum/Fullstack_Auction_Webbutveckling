@@ -90,6 +90,9 @@
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr; /*en kolumn på mobil*/
+    grid-template-columns: 1fr; 
+  }
+  .container {
+    padding: 1rem;
   }
 }

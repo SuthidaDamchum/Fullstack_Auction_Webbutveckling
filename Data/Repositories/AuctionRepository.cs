@@ -48,7 +48,9 @@ namespace Data.Repositories
 
         public async Task<Auction> GetAuctionById(int id)
         {
-            return await _context.Auctions.FindAsync(id);
+                return await _context.Auctions
+               .Include(a => a.CreatedBy)    
+               .FirstOrDefaultAsync(a => a.Id == id);
         }
 
         public async Task<IEnumerable<Auction>> SearchClosedAuctions(string? title)

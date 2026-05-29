@@ -1,115 +1,143 @@
 .container {
   display: flex;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 4rem;
+  padding: 4rem 6rem;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: flex-start;
 }
 
 .left {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 2rem;
 }
 
-.mainImage {
-  width: 50%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+.image {
+  width: 380px;
+  height: 300px;
   object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
+.title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 1.2rem 0 0.5rem;
+  align-self: center;
+}
 .description {
   color: #555;
-  line-height: 1.6;
-  margin: 1rem 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  max-width: 320px;
+}
+
+.createdBy {
+  color: #888;
+  font-size: 0.9rem;
 }
 
 .right {
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.infoBox {
-  display: flex;
-  justify-content: space-between;
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.infoBox h2 {
-  color: #4a90e2;
-}
-
-.bidBox {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.infoBox {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.infoLabel {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.infoValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2980b9;
 }
 
 .bidInput {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
   width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 0.8rem;
 }
 
 .bidButton {
-  padding: 0.75rem;
-  background-color: #4a90e2;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #2980b9;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .bidButton:hover {
-  background-color: #357abd;
+  background-color: #1a6a9a;
 }
 
-.error {
-  color: #cc0000;
-  background: #ffe0e0;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.success {
-  color: #007700;
-  background: #e0ffe0;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.history h3 {
-  margin-bottom: 1rem;
+.historyTitle {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 0.5rem;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+  font-size: 0.95rem;
 }
 
 .table th {
-  color: #555;
-  font-weight: 600;
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #eee;
+}
+
+.table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column; /* bild ovanför, bud nedanför */
+    padding: 1rem;
+    gap: 1rem;
   }
+
   .right {
     width: 100%;
+    position: static; /* ta bort sticky på mobil */
+  }
+
+  .image {
+    width: 100%;
+    height: 220px;
   }
 }
