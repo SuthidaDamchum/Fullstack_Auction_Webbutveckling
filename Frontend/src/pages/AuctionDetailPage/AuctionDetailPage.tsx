@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { getAuctionById } from "../../services/auctionService";
 import {
   getBidsByAuctionId,
   getHighestBid,
   addBid,
+  deleteBid,
 } from "../../services/bidService";
 import type { Auction } from "../../types/Auction";
 import type { Bid } from "../../types/Bid";
@@ -17,7 +17,7 @@ const getBidIncrement = (currentPrice: number): number => {
   if (currentPrice < 1000) return 100;
   if (currentPrice < 5000) return 250;
   if (currentPrice < 10000) return 500;
-  return 1000;
+  return 750;
 };
 
 const AuctionDetailPage = () => {
@@ -34,15 +34,8 @@ const AuctionDetailPage = () => {
 
   useEffect(() => {
     const auctionId = Number(id);
-
-    getAuctionById(auctionId)
-      .then((data) => setAuction(data))
-      .catch((err) => console.error(err));
-
-    getBidsByAuctionId(auctionId)
-      .then((data) => setBids(data))
-      .catch((err) => console.error(err));
-
+    getAuctionById(auctionId).then(setAuction).catch(console.error);
+    getBidsByAuctionId(auctionId).then(setBids).catch(console.error);
     getHighestBid(auctionId)
       .then((data) => {
         setHighestBid(data);
@@ -57,19 +50,44 @@ const AuctionDetailPage = () => {
     setSuccess("");
     if (!user) return;
 
+    const minBid = highestBid
+      ? highestBid.amount + getBidIncrement(highestBid.amount)
+      : auction!.price + getBidIncrement(auction!.price);
+
+    if (bidAmount < minBid) {
+      setError(`Budet måste vara minst ${minBid} kr!`);
+      return;
+    }
+
     try {
       await addBid(Number(id), user.id, bidAmount);
       setSuccess("Budet lades!");
-
       const updatedBids = await getBidsByAuctionId(Number(id));
       const updatedHighest = await getHighestBid(Number(id));
       setBids(updatedBids);
       setHighestBid(updatedHighest);
-      // ← använd getBidIncrement istället för +1
       const increment = getBidIncrement(updatedHighest.amount);
       setBidAmount(updatedHighest.amount + increment);
     } catch (_) {
       setError("Budet är för lågt eller ogiltigt!");
+    }
+  };
+
+  const handleDeleteBid = async (bidId: number) => {
+    try {
+      await deleteBid(bidId);
+      const updatedBids = await getBidsByAuctionId(Number(id));
+      const updatedHighest = await getHighestBid(Number(id)).catch(() => null);
+      setBids(updatedBids);
+      setHighestBid(updatedHighest);
+      if (updatedHighest) {
+        const increment = getBidIncrement(updatedHighest.amount);
+        setBidAmount(updatedHighest.amount + increment);
+      } else {
+        setBidAmount(auction?.price ?? 0);
+      }
+    } catch {
+      setError("Kunde inte ta bort budet!");
     }
   };
 
@@ -91,7 +109,6 @@ const AuctionDetailPage = () => {
         <h1>{auction.title}</h1>
         <p className={styles.description}>{auction.description}</p>
         <p>Skapad av: {auction.createdBy}</p>
-
         {isOwner && (
           <button
             className={styles.editBtn}
@@ -101,9 +118,10 @@ const AuctionDetailPage = () => {
           </button>
         )}
       </div>
+
       {/* HÖGER SIDA */}
       <div className={styles.right}>
-        {/* Info-box */}
+        {/* Info box */}
         <div className={styles.infoBox}>
           <div>
             <p>Högsta bud:</p>
@@ -119,12 +137,11 @@ const AuctionDetailPage = () => {
           </div>
         </div>
 
-        {/* Lägg bud - visa INTE om ägaren eller inte inloggad */}
+        {/* Lägg bud - bara om öppen, inloggad, inte ägare, inte admin */}
         {isLoggedIn && auction.isOpen && !isOwner && !isAdmin && (
           <div className={styles.bidBox}>
             {error && <p className={styles.error}>{error}</p>}
             {success && <p className={styles.success}>{success}</p>}
-
             <input
               type="number"
               value={bidAmount}
@@ -144,45 +161,69 @@ const AuctionDetailPage = () => {
           </div>
         )}
 
-        {/* Visa om ägaren försöker buda */}
-        {isOwner && (
+        {/* Meddelanden */}
+        {isOwner && auction.isOpen && (
           <p className={styles.ownerMsg}>
             Du kan inte buda på din egen auktion
           </p>
         )}
-
         {!isLoggedIn && (
           <p>
             Du måste <a href="/login">logga in</a> för att buda
           </p>
         )}
 
-        {/* Budhistorik */}
-        <div className={styles.history}>
-          <h3>Budhistorik</h3>
-          {bids.length === 0 ? (
-            <p>Inga bud ännu</p>
-          ) : (
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Användare</th>
-                  <th>Datum</th>
-                  <th>Belopp</th>
-                </tr>
-              </thead>
-              <tbody>
-                {bids.map((bid) => (
-                  <tr key={bid.id}>
-                    <td>Användare {bid.userId}</td>
-                    <td>{new Date(bid.bidTime).toLocaleDateString("sv-SE")}</td>
-                    <td>{bid.amount} kr</td>
+        {/* Vinnande bud - bara om STÄNGD */}
+        {!auction.isOpen && (
+          <p className={styles.winnerMsg}>
+            🏆 Vinnande bud:{" "}
+            {highestBid ? `${highestBid.amount} kr` : "Inga bud lades"}
+          </p>
+        )}
+
+        {/* Budhistorik - bara om ÖPPEN */}
+        {auction.isOpen && (
+          <div className={styles.history}>
+            <h3>Budhistorik</h3>
+            {bids.length === 0 ? (
+              <p>Inga bud ännu</p>
+            ) : (
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th>Användare</th>
+                    <th>Datum</th>
+                    <th>Belopp</th>
+                    <th></th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
+                </thead>
+                <tbody>
+                  {bids.map((bid, index) => (
+                    <tr key={bid.id}>
+                      <td>Användare {bid.userId}</td>
+                      <td>
+                        {new Date(bid.bidTime).toLocaleDateString("sv-SE")}
+                      </td>
+                      <td>{bid.amount} kr</td>
+                      <td>
+                        {user?.id === bid.userId &&
+                          index === 0 &&
+                          auction.isOpen && (
+                            <button
+                              className={styles.deleteBtn}
+                              onClick={() => handleDeleteBid(bid.id)}
+                            >
+                              Ångra
+                            </button>
+                          )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

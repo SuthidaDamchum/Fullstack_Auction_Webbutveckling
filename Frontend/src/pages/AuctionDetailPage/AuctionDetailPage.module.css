@@ -137,7 +137,19 @@
 .editBtn:hover {
   background: #d68910;
 }
+.deleteBtn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
 
+.deleteBtn:hover {
+  background: #c0392b;
+}
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* bild ovanför, bud nedanför */
