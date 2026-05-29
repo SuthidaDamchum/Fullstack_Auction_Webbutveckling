@@ -13,10 +13,7 @@ namespace Domain.Entities
 
         public ICollection<Auction> Auctions { get; set; }
 
-        public UserDTO ToDto()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
 

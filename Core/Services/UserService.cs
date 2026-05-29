@@ -1,6 +1,7 @@
 ﻿using Core.Interfaces;
 using Data.Interfaces;
 using Domain.DTOs;
+using Domain.Mappings;  
 namespace Core.Services
 {
     public class UserService : IUserService

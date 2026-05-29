@@ -36,7 +36,7 @@ namespace Data.Repositories
         {
             var query = _context.Auctions
               .Include(a => a.CreatedBy)
-              .Where(a => a.EndDate > DateTime.UtcNow);
+              .Where(a => a.EndDate > DateTime.UtcNow && a.IsActive == true && a.CreatedBy.IsActive == true); 
 
             if (!string.IsNullOrEmpty(search))
             {
