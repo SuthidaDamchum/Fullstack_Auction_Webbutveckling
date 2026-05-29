@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { getAuctionById } from "../../services/auctionService";
 import {
@@ -11,9 +12,18 @@ import type { Auction } from "../../types/Auction";
 import type { Bid } from "../../types/Bid";
 import styles from "./AuctionDetailPage.module.css";
 
+const getBidIncrement = (currentPrice: number): number => {
+  if (currentPrice < 500) return 50;
+  if (currentPrice < 1000) return 100;
+  if (currentPrice < 5000) return 250;
+  if (currentPrice < 10000) return 500;
+  return 1000;
+};
+
 const AuctionDetailPage = () => {
   const { id } = useParams();
-  const { user, isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  const { user, isLoggedIn, isAdmin } = useAuth();
 
   const [auction, setAuction] = useState<Auction | null>(null);
   const [bids, setBids] = useState<Bid[]>([]);
@@ -30,16 +40,14 @@ const AuctionDetailPage = () => {
       .catch((err) => console.error(err));
 
     getBidsByAuctionId(auctionId)
-      .then((data) => {
-        console.log("Bud:", data[0]);
-        setBids(data);
-      })
+      .then((data) => setBids(data))
       .catch((err) => console.error(err));
 
     getHighestBid(auctionId)
       .then((data) => {
         setHighestBid(data);
-        setBidAmount(data ? data.amount + 1 : 0);
+        const increment = getBidIncrement(data ? data.amount : 0);
+        setBidAmount(data ? data.amount + increment : 0);
       })
       .catch(() => setHighestBid(null));
   }, [id]);
@@ -47,25 +55,27 @@ const AuctionDetailPage = () => {
   const handleBid = async () => {
     setError("");
     setSuccess("");
-
     if (!user) return;
 
     try {
       await addBid(Number(id), user.id, bidAmount);
       setSuccess("Budet lades!");
 
-      // Uppdatera bud och högsta bud
       const updatedBids = await getBidsByAuctionId(Number(id));
       const updatedHighest = await getHighestBid(Number(id));
       setBids(updatedBids);
       setHighestBid(updatedHighest);
-      setBidAmount(updatedHighest.amount + 1);
+      // ← använd getBidIncrement istället för +1
+      const increment = getBidIncrement(updatedHighest.amount);
+      setBidAmount(updatedHighest.amount + increment);
     } catch (_) {
       setError("Budet är för lågt eller ogiltigt!");
     }
   };
 
   if (!auction) return <p>Laddar...</p>;
+
+  const isOwner = user?.id === auction.userId;
 
   return (
     <div className={styles.container}>
@@ -81,8 +91,16 @@ const AuctionDetailPage = () => {
         <h1>{auction.title}</h1>
         <p className={styles.description}>{auction.description}</p>
         <p>Skapad av: {auction.createdBy}</p>
-      </div>
 
+        {isOwner && (
+          <button
+            className={styles.editBtn}
+            onClick={() => navigate(`/auctions/${id}/edit`)}
+          >
+            Redigera auktion
+          </button>
+        )}
+      </div>
       {/* HÖGER SIDA */}
       <div className={styles.right}>
         {/* Info-box */}
@@ -101,8 +119,8 @@ const AuctionDetailPage = () => {
           </div>
         </div>
 
-        {/* Lägg bud */}
-        {isLoggedIn && auction.isOpen && (
+        {/* Lägg bud - visa INTE om ägaren eller inte inloggad */}
+        {isLoggedIn && auction.isOpen && !isOwner && !isAdmin && (
           <div className={styles.bidBox}>
             {error && <p className={styles.error}>{error}</p>}
             {success && <p className={styles.success}>{success}</p>}
@@ -113,10 +131,24 @@ const AuctionDetailPage = () => {
               onChange={(e) => setBidAmount(Number(e.target.value))}
               className={styles.bidInput}
             />
+            <p className={styles.minBid}>
+              Minsta bud:{" "}
+              {highestBid
+                ? highestBid.amount + getBidIncrement(highestBid.amount)
+                : auction.price + getBidIncrement(auction.price)}{" "}
+              kr
+            </p>
             <button onClick={handleBid} className={styles.bidButton}>
               Lägg bud
             </button>
           </div>
+        )}
+
+        {/* Visa om ägaren försöker buda */}
+        {isOwner && (
+          <p className={styles.ownerMsg}>
+            Du kan inte buda på din egen auktion
+          </p>
         )}
 
         {!isLoggedIn && (
