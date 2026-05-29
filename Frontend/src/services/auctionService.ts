@@ -33,3 +33,30 @@ export const createAuction = async (
   });
   return response.data;
 };
+
+export const deactivateAuction = async (id: number): Promise<void> => {
+  const token = localStorage.getItem("token");
+  await axios.put(
+    `${API}/${id}/deactivate`,
+    {},
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  );
+};
+
+export const updateAuction = async (
+  id: number,
+  data: {
+    title: string;
+    description: string;
+    price: number;
+    endDate: string;
+  },
+): Promise<Auction> => {
+  const token = localStorage.getItem("token");
+  const response = await axios.put(`${API}/${id}/EditAuction`, data, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};

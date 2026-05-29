@@ -8,6 +8,8 @@ import AuctionDetailPage from "./pages/AuctionDetailPage/AuctionDetailPage";
 import ClosedAuctionsPage from "./pages/ClosedAuctionsPage/ClosedAuctionsPage";
 import CreateAuctionPage from "./pages/CreateAuctionPage/CreateAuctionPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import AdminPage from "./pages/AdminPage/AdminPage";
+import UpdateAuctionPage from "./pages/UpdateAuctionPage/UpdateAuctionPage";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/closed" element={<ClosedAuctionsPage />} />
           <Route path="/create" element={<CreateAuctionPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/auctions/:id/edit" element={<UpdateAuctionPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
