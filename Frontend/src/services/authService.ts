@@ -31,7 +31,7 @@ export const updatePassword = async (
   const token = localStorage.getItem("token");
   await axios.put(
     `${API_URL}/${id}/UpdatePassword`,
-    { oldPassword, newPassword },
+    { currentPassword: oldPassword, newPassword },
     { headers: { Authorization: `Bearer ${token}` } },
   );
 };
