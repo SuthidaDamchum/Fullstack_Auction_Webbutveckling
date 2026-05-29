@@ -12,6 +12,14 @@ namespace Domain.Mappings
             Role = user.Role,
             Token = token
         };
+
+        public static UserDTO ToDto(this User user) => new UserDTO
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+            Role = user.Role,
+            IsActive = user.IsActive
+        };
     }
 }
-

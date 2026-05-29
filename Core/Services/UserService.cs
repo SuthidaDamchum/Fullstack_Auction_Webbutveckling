@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces;
 using Data.Interfaces;
-
+using Domain.DTOs;
 namespace Core.Services
 {
     public class UserService : IUserService
@@ -16,5 +16,12 @@ namespace Core.Services
         {
             await _userRepository.DeactivateUser(id);
         }
+
+        public async Task<IEnumerable<UserDTO>> GetAllUsers()
+        {
+            var users = await _userRepository.GetAllUsers();
+            return users.Select(u => u.ToDto()); 
+        }
+   
     }
 }

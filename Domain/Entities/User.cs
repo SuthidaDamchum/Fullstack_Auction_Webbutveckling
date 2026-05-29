@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using Domain.DTOs;
+
+namespace Domain.Entities
 {
     public class User
     {
@@ -10,6 +12,11 @@
         public string Role { get; set; }
 
         public ICollection<Auction> Auctions { get; set; }
+
+        public UserDTO ToDto()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

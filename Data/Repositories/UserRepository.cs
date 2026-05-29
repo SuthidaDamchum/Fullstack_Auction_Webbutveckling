@@ -26,6 +26,11 @@ namespace Data.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<User>> GetAllUsers()
+        {
+            return await _context.Users.ToListAsync();
+        }
+
         public async Task<User> GetUserByEmailAsync(string email)
         {
             return await _context.Users.Where(user => user.Email == email)

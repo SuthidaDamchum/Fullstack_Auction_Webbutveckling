@@ -15,6 +15,14 @@ namespace Auction_API.Controllers
             _userService = userService;
         }
 
+        [HttpGet("GetAllUsers")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+            return Ok(users);
+        }
+
         [HttpPut("{id}/deactivateUser")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeactivateUser(int id)
