@@ -5,3 +5,11 @@ export interface User {
   role: string;
   token: string;
 }
+
+export interface UserDTO{
+  id: number;
+  name: string;
+  email: string;
+  role:string;
+  isActive: boolean;
+}
